@@ -1,24 +1,10 @@
 version: '3'
+
 services:
   web:
-    build: 
+    build:
       context: .
-      dockerfile: Dockerfile.dev
+      dockerfile: Dockerfile
 
     ports:
-      - "3000:3000"
-    volumes:
-      - /home/node/app/node_modules #exclude this directory adddition
-      - .:/home/node/app               #map . to /app
-
-  tests:
-    build: 
-      context: .
-      dockerfile: Dockerfile.dev
-
-    volumes:
-      - /home/node/app/node_modules #exclude this directory adddition
-      - .:/home/node/app               #map . to /app
-    command: ["npm","run","test"]
-
-  
+    - 80:80
